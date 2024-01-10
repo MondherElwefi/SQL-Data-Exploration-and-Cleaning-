@@ -1,0 +1,31 @@
+/*
+
+Cleaning Data in SQL Queries
+
+*/
+
+
+Select *
+From PortfolioProject.dbo.NashvilleHousing
+
+--------------------------------------------------------------------------------------------------------------------------
+
+-- Standardize Date Format
+
+Select saleDateConverted, CONVERT(Date,SaleDate)
+From PortfolioProject.dbo.NashvilleHousing
+
+
+Update NashvilleHousing
+SET SaleDate = CONVERT(Date,SaleDate)
+
+-- If it doesn't Update properly
+
+ALTER TABLE NashvilleHousing
+Add SaleDateConverted Date;
+
+Update NashvilleHousing
+SET SaleDateConverted = CONVERT(Date,SaleDate)
+
+
+
